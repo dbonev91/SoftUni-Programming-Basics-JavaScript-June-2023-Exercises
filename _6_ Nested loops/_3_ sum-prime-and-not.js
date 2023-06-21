@@ -5,30 +5,27 @@ function sumPrimeAndNot (inputArray) {
 
   while (inputArray[index] !== 'stop') {
     let currentNumber = Number(inputArray[index]);
+
     index += 1;
 
     if (currentNumber < 0) {
       console.log('Number is negative.');
-      continue;
-    }
-
-    if (currentNumber === 0 || currentNumber === 1) {
+    } else if (currentNumber === 0 || currentNumber === 1) {
       noPrimeNumbersSum += currentNumber;
-      continue;
-    }
-
-    let notPrimeNumber;
-
-    for (let primeIndex = 2; primeIndex < currentNumber; primeIndex += 1) {
-      if (currentNumber % primeIndex === 0) {
-        notPrimeNumber = currentNumber;
-      }
-    }
-
-    if (notPrimeNumber) {
-      noPrimeNumbersSum += notPrimeNumber;
     } else {
-      primeNumbersSum += currentNumber;
+      let notPrimeNumber;
+
+      for (let primeIndex = 2; primeIndex < currentNumber; primeIndex += 1) {
+        if (currentNumber % primeIndex === 0) {
+          notPrimeNumber = currentNumber;
+        }
+      }
+
+      if (notPrimeNumber) {
+        noPrimeNumbersSum += notPrimeNumber;
+      } else {
+        primeNumbersSum += currentNumber;
+      }
     }
   }
 
