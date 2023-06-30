@@ -3,14 +3,14 @@ function jessyTrip (inputArray) {
   let availableMoney = Number(inputArray[1]);
   let index = 2;
   let sequanceSpendDays = 0;
-  let allPastDays = 0;
-  let currentTransactionType = inputArray[index];
-  let currentSum = Number(inputArray[index + 1]);
 
   while (availableMoney < neededMoney) {
     if (sequanceSpendDays >= 5) {
       break;
     }
+
+    let currentTransactionType = inputArray[index];
+    let currentSum = Number(inputArray[index + 1]);
 
     if (currentTransactionType === 'spend') {
       sequanceSpendDays += 1;
@@ -27,19 +27,15 @@ function jessyTrip (inputArray) {
     }
 
     index += 2;
-    allPastDays += 1;
-
-    currentTransactionType = inputArray[index];
-    currentSum = Number(inputArray[index + 1]);
   }
 
   if (sequanceSpendDays >= 5) {
     console.log(`You can't save the money.`);
-    console.log(allPastDays);
+    console.log((index - 2) / 2);
   }
   
   if (availableMoney >= neededMoney) {
-    console.log(`You saved the money for ${allPastDays} days.`);
+    console.log(`You saved the money for ${(index - 2) / 2} days.`);
   }
 }
 
