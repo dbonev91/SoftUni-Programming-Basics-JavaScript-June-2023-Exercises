@@ -1,14 +1,14 @@
 function grades (inputArray) {
   let badGradesAllowed = inputArray[0];
   let index = 1;
-  let currentTaskName = inputArray[index];
-  let currentScore = Number(inputArray[index + 1]);
+  let currentTaskName;
   let allGradesSum = 0;
   let allGradesCount = 0;
   let badGradesCount = 0;
-  let preLastProblemName;
 
-  while (currentTaskName !== "Enough") {
+  while (inputArray[index] !== "Enough") {
+    let currentScore = Number(inputArray[index + 1]);
+
     allGradesSum += currentScore;
     allGradesCount += 1;
 
@@ -20,10 +20,8 @@ function grades (inputArray) {
       break;
     }
 
-    index += 2;
-    preLastProblemName = currentTaskName;
     currentTaskName = inputArray[index];
-    currentScore = Number(inputArray[index + 1]);
+    index += 2;
   }
 
   if (badGradesCount >= badGradesAllowed) {
@@ -31,7 +29,7 @@ function grades (inputArray) {
   } else {
     console.log(`Average score: ${(allGradesSum / allGradesCount).toFixed(2)}`);
     console.log(`Number of problems: ${allGradesCount}`);
-    console.log(`Last problem: ${preLastProblemName}`);
+    console.log(`Last problem: ${currentTaskName}`);
   }
 }
 
