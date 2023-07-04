@@ -4,7 +4,7 @@ function numberPyramid (inputArray) {
 
   for (let row = 0; row <= n; row += 1) {
     let drawALine = '';
-    for (let col = 1; col <= row + 1; col += 1) {
+    for (let col = 0; col <= row; col += 1) {
       currentNumber += 1;
 
       drawALine += `${currentNumber} `
