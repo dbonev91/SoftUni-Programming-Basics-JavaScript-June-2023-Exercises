@@ -8,19 +8,20 @@ function trainTheTrainers (inputArray) {
     let currentCourseName;
     let currentCourseEstimateSum = 0;
 
-    for (let estimateIndex = index; estimateIndex < index + juryCount + 1; estimateIndex += 1) {
-      if (estimateIndex === index) {
-        currentCourseName = inputArray[estimateIndex];
+    for (let estimateIndex = 0; estimateIndex <= juryCount; estimateIndex += 1) {
+      if (estimateIndex === 0) {
+        currentCourseName = inputArray[index];
       } else {
         estimatesCount += 1;
-        currentCourseEstimateSum += Number(inputArray[estimateIndex]);
+        currentCourseEstimateSum += Number(inputArray[index]);
       }
+
+      index += 1;
     }
 
     allCoursesEstimateSum += currentCourseEstimateSum;
 
     console.log(`${currentCourseName} - ${(currentCourseEstimateSum / juryCount).toFixed(2)}.`);
-    index += juryCount + 1;
   }
 
   console.log(`Student's final assessment is ${(allCoursesEstimateSum / estimatesCount).toFixed(2)}.`);
