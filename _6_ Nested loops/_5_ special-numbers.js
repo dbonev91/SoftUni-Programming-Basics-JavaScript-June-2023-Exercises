@@ -3,19 +3,18 @@ function specialNumbers (inputArray) {
   let output = '';
 
   for (let fourCharNumber = 1111; fourCharNumber <= 9999; fourCharNumber += 1) {
-    let fourCharNumberAsString = `${fourCharNumber}`;
+    let fourCharNumberAsString = `${fourCharNumber} `;
 
-    for (let numberCharIndex = 0; numberCharIndex < fourCharNumberAsString.length; numberCharIndex += 1) {
+    for (let numberCharIndex = 0; numberCharIndex < 4; numberCharIndex += 1) {
       let singleCharNumber = Number(fourCharNumberAsString[numberCharIndex]);
 
       if (numberInput % singleCharNumber !== 0) {
+        fourCharNumberAsString = '';
         break;
       }
-
-      if (numberCharIndex === fourCharNumberAsString.length - 1) {
-        output += `${fourCharNumberAsString} `;
-      }
     }
+
+    output += fourCharNumberAsString;
   }
 
   console.log(output);
