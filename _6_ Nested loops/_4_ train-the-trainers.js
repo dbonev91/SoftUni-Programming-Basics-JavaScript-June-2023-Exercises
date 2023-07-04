@@ -8,7 +8,7 @@ function trainTheTrainers (inputArray) {
     let currentCourseName;
     let currentCourseEstimateSum = 0;
 
-    for (let estimateIndex = index; estimateIndex <= index + juryCount; estimateIndex += 1) {
+    for (let estimateIndex = index; estimateIndex < index + juryCount + 1; estimateIndex += 1) {
       if (estimateIndex === index) {
         currentCourseName = inputArray[estimateIndex];
       } else {
