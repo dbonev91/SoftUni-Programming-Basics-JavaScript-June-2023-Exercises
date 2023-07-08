@@ -4,7 +4,7 @@ function cinemaTickets (inputArray) {
   let totalStudentTickets = 0;
   let totalKidTickets = 0;
 
-  while (inputArray[index]) {
+  while (inputArray[index] !== 'Finish') {
     let movieNameInput = inputArray[index];
     let roomAllSeatsInput = Number(inputArray[index + 1]);
 
@@ -12,7 +12,7 @@ function cinemaTickets (inputArray) {
     
     index += 2;
 
-    while (inputArray[index] === 'standard' || inputArray[index] === 'student' || inputArray[index] === 'kid' || inputArray[index] === 'End' || inputArray[index] === 'Finish') {
+    while (inputArray[index] === 'standard' || inputArray[index] === 'student' || inputArray[index] === 'kid' || inputArray[index] === 'End') {
       if (takenSeats < roomAllSeatsInput) {
         switch (inputArray[index]) {
           case "standard":
